@@ -28,8 +28,7 @@ public class Part06Request {
 	StepVerifier requestOneExpectSkylerThenRequestOneExpectJesse(Flux<User> flux) {
 		return StepVerifier.create(flux)
 				.thenRequest(1).expectNext(User.SKYLER)
-				.thenRequest(1).expectNext(User.JESSE)
-				.expectComplete();
+				.thenRequest(1).expectNext(User.JESSE).thenCancel();
 	}
 
 //========================================================================================
